@@ -38,6 +38,7 @@ public class Exercize_2_17Controller {
 
 	@FXML
 	void start_Button_On_Action(ActionEvent event) {
+		//-------------------------------check input numbers
 		if(!(check_Input(number1_Text_Field.getText())) ||
 				!(check_Input(number2_Text_Field.getText())) || !
 						(check_Input(number3_Text_Field.getText()))){
@@ -49,6 +50,7 @@ public class Exercize_2_17Controller {
 			largest_Text_Field.setDisable(true);
 			smallest_Text_Field.setDisable(true);
 		}
+		//-------------------------------check empty fields
 		else if(isEmpty(number1_Text_Field.getText()) ||
 					isEmpty(number2_Text_Field.getText()) ||
 							isEmpty(number3_Text_Field.getText())) {
@@ -60,6 +62,7 @@ public class Exercize_2_17Controller {
 			largest_Text_Field.setDisable(true);
 			smallest_Text_Field.setDisable(true);
 		}
+		//-------------------------------if everything correct perform programm
 		else{
 			warning_Label.setVisible(false);
 			sum_Text_Field.setDisable(false);
@@ -67,27 +70,27 @@ public class Exercize_2_17Controller {
 			average_Text_Field.setDisable(false);
 			largest_Text_Field.setDisable(false);
 			smallest_Text_Field.setDisable(false);
-			//-----------------------------
+			//-----------------------------sum
 			Integer sum = Integer.valueOf(number1_Text_Field.getText()) +
 					Integer.valueOf(number2_Text_Field.getText()) +
 							Integer.valueOf(number3_Text_Field.getText());
 			sum_Text_Field.setText(sum.toString());
-			//-----------------------------
+			//-----------------------------product
 			Integer product = Integer.valueOf(number1_Text_Field.getText()) *
 					Integer.valueOf(number2_Text_Field.getText()) *
 					Integer.valueOf(number3_Text_Field.getText());
 			product_Text_Field.setText(product.toString());
-			//-----------------------------
+			//-----------------------------average
 			Double average = (Double.valueOf(number1_Text_Field.getText()) +
 					Double.valueOf(number2_Text_Field.getText()) +
 					Double.valueOf(number3_Text_Field.getText())) / 3;
 			average_Text_Field.setText(String.format("%.2f", average));
-			//-----------------------------
+			//-----------------------------largest
 			largest_Text_Field.setText(max_Number(Integer.valueOf(number1_Text_Field.getText()),
 					Integer.valueOf(number2_Text_Field.getText()),
 							Integer.valueOf(number3_Text_Field.getText()))
 					.toString());
-			//-----------------------------
+			//-----------------------------smallest
 			smallest_Text_Field.setText(min_Number(Integer.valueOf(number1_Text_Field.getText()),
 					Integer.valueOf(number2_Text_Field.getText()),
 					Integer.valueOf(number3_Text_Field.getText()))
